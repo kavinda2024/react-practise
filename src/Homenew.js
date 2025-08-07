@@ -17,7 +17,7 @@ const{data: blogs, isPending, error}=useFetch('http://localhost:8000/blogs');
     return ( 
 
         <div className="homenew">
-
+        <h3> added on change name button using onclick handler</h3>
          <button onClick={() => setName('neluma')} >changename  </button>
         <p>{name}</p>
 
