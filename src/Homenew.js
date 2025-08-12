@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import Bloglist from "./Bloglist";
 import useFetch from "./usefetch";
 const title= "All blogs";

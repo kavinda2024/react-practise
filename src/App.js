@@ -1,32 +1,37 @@
 
+import{BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar';
 import HOME from './Home';
 import Homenew from './Homenew';
+import Create from './Create';
 function App() {
-const title= "welcome to site";
-const likes =50;
-const link= "http://www.google.com";
+ 
   return (
+
+<Router>
     <div className="App">
+
+
+    
       <Navbar></Navbar>
+
+    
       
       <div className='content'>
-      <HOME></HOME>
-        
-     
-        <h2>{title}</h2>
 
-        <p> number of likes {likes} </p>
-        <p> this is an array {[10,20,30,40]} </p>
-        <p>{Math.random()*200} </p>
-      <a href= {link}> Go to google </a>
-      <br></br>
-      <br></br>
-      <Homenew></Homenew>
+           <Switch>
+      <Route exact path='/'>  <Homenew></Homenew>  </Route>
+      <Route path='/oldhome'> <HOME></HOME>   </Route>
+      <Route path='/create'> <Create></Create>   </Route>
+
+        </Switch>
+     
 
       </div>
 
     </div>
+
+  </Router>
   );
 }
 
