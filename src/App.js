@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import HOME from './Home';
 import Homenew from './Homenew';
 import Create from './Create';
+import BlogDetails from './BlogDetails';
 function App() {
  
   return (
@@ -19,10 +20,12 @@ function App() {
       
       <div className='content'>
 
-           <Switch>
+           <Switch>   {/* ensures only one route is displayed in the broswer at a time  */}
       <Route exact path='/'>  <Homenew></Homenew>  </Route>
       <Route path='/oldhome'> <HOME></HOME>   </Route>
       <Route path='/create'> <Create></Create>   </Route>
+      <Route path='/blogs/:id'> <BlogDetails> </BlogDetails>   </Route>
+
 
         </Switch>
      

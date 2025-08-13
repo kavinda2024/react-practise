@@ -13,9 +13,11 @@ const[error,setError]= useState(null);
 
 useEffect(()=>{
 
+   const abortCont= new AbortController(); //use to stop the fetch when a component using the fetch is inactive
+
    setTimeout(()=>{  //set timeout can be used to delay a function to display a loading sequence
 
-      fetch(url)
+      fetch(url,{signal: abortCont.signal})
      .then(res => {
          
         if(!res.ok){
@@ -35,8 +37,14 @@ useEffect(()=>{
      })
 
      .catch(err=>{
-      setError(err.message);
+      if(err.name === 'AbortError'){
+         // console.log('fetch aborted')
+      } else{
       setIspending(false); //hides loading msg if error is present
+      setError(err.message);
+      
+       }
+      
 
      })
 
@@ -44,6 +52,7 @@ useEffect(()=>{
 
 
    }, 1000); //time out duration 1000ms
+   return() => abortCont.abort();
 
 },[url]);
 
