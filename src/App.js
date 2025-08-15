@@ -5,6 +5,7 @@ import HOME from './Home';
 import Homenew from './Homenew';
 import Create from './Create';
 import BlogDetails from './BlogDetails';
+import NotFound from './NotFound';
 function App() {
  
   return (
@@ -25,7 +26,7 @@ function App() {
       <Route path='/oldhome'> <HOME></HOME>   </Route>
       <Route path='/create'> <Create></Create>   </Route>
       <Route path='/blogs/:id'> <BlogDetails> </BlogDetails>   </Route>
-
+      <Route Path ="*"> <NotFound></NotFound> </Route>
 
         </Switch>
      

@@ -28,7 +28,7 @@ const{data: blogs, isPending, error}=useFetch('http://localhost:8000/blogs');
         {error && <div> {error} </div> }
         {isPending && <div> Loading...</div> }
         {blogs &&<Bloglist blogs={blogs} title={title} />}
-        {blogs &&<Bloglist blogs={blogs.filter((blog) => blog.author ==='kavinda')} title={title2} />}
+        {blogs &&<Bloglist blogs={blogs.filter((blog) => blog.author ==='kavinda')} title={title2} />} {/*add filter function to blogs */}
 
          
       

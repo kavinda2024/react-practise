@@ -1,11 +1,12 @@
 import { useState } from "react";
-
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Create = () => {
 const[title,setTitle]= useState('your title')
 const[body,setBody]= useState('your content')
 const[author,setAuthor]= useState('kavinda')
 const[isPending,setIsPending]=useState(false)
+const history=useHistory();
 
 
 const HandleSubmit  = (e) => {
@@ -22,10 +23,11 @@ const HandleSubmit  = (e) => {
   .then(()=>{
     console.log("new blog added");
     setIsPending(false)
-
-
+    history.push('/');
   })
   
+
+
 }
  
 
